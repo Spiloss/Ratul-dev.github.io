@@ -531,58 +531,21 @@ body {
     font-family: inherit;
     font-size: 1rem;
 }
-
-@media (max-width: 768px) {
-    body {
-        overflow-x: hidden; /* Evita lo scroll laterale quando il menu è fuori */
-    }
-
-    .hero h1 { font-size: 2.5rem; }
-
-    /* Nascondiamo i social dall'header su mobile per fare spazio (opzionale) */
-    .header-socials { display: none; }
-
-    /* Posizionamento Menu Mobile */
-    .nav-links {
-        position: fixed;
-        right: 0px;
-        height: 92vh;
-        top: 90px; /* Sotto l'header */
-        background-color: var(--white);
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        width: 100%; /* Copre tutta la larghezza */
-        transform: translateX(100%); /* Lo sposta fuori a destra */
-        transition: transform 0.5s ease-in;
-        z-index: 1000;
-        padding-top: 40px;
-    }
-
-    .nav-links li {
-        opacity: 0; 
-    }
-
-    .nav-links.nav-active {
-        transform: translateX(0%);
-    }
-
-    .burger {
-        display: block;
-        cursor: pointer;
-    }
-
-    .toggle .line1 {
-        transform: rotate(-45deg) translate(-5px, 6px);
-    }
-    .toggle .line2 {
-        opacity: 0;
-    }
-    .toggle .line3 {
-        transform: rotate(45deg) translate(-5px, -6px);
-    }
+.burger {
+    display: none; /* Nascosto su PC */
+    cursor: pointer;
+    z-index: 1001;
 }
 
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--dark-grey);
+    margin: 5px;
+    transition: all 0.3s ease;
+}
+
+/* --- ANIMAZIONE LINK (Richiesta dal JS) --- */
 @keyframes navLinkFade {
     from {
         opacity: 0;
@@ -593,14 +556,71 @@ body {
         transform: translateX(0px);
     }
 }
-.burger {
-    display: none; 
-}
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden; /* Evita lo scroll laterale con menu aperto */
+    }
 
-.burger div {
-    width: 25px;
-    height: 3px;
-    background-color: var(--dark-grey);
-    margin: 5px;
-    transition: all 0.3s ease;
+    .navbar {
+        padding: 0 20px; /* Più spazio sui bordi dello smartphone */
+        justify-content: space-between; 
+        width: 100%;
+    }
+
+    .burger {
+        display: block; /* Visibile solo su mobile */
+    }
+
+    .header-socials { 
+        display: none; /* Nascondiamo i social per non affollare l'header */
+    }
+
+    .nav-links {
+        position: fixed;
+        right: 0px;
+        height: 92vh;
+        top: 90px; /* Parte da sotto l'header */
+        background-color: var(--white);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%; 
+        transform: translateX(100%); /* Nascosto a destra */
+        transition: transform 0.5s ease-in;
+        z-index: 1000;
+        padding-top: 40px;
+    }
+
+    .nav-links li {
+        opacity: 0; /* Gestito dall'animazione JS */
+        margin: 15px 0;
+    }
+
+    .nav-links.nav-active {
+        transform: translateX(0%); /* Entra in campo */
+    }
+
+    /* Trasformazione Burger in "X" quando cliccato (.toggle aggiunto via JS) */
+    .toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .toggle .line2 {
+        opacity: 0;
+    }
+    .toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+
+    /* Correzioni Hero per mobile */
+    .hero h1 { 
+        font-size: 2.5rem; 
+    }
+    .cta-group { 
+        display: flex; 
+        flex-direction: column; 
+        gap: 10px; 
+    }
+    .btn-outline { 
+        margin-left: 0; 
+    }
 }
