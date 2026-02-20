@@ -20,10 +20,12 @@ body {
     line-height: 1.6;
 }
 
+/* Fix per testi che toccano i bordi */
 .container {
-    max-width: 1100px;
+    width: 100%;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 20px; /* Questo impedisce ai testi di toccare i lati */
 }
 
 /* Header & Nav */
@@ -326,7 +328,15 @@ body {
 .t-content p { color: #666; font-size: 0.95rem; }
 
 @media (max-width: 768px) {
-    .about-grid { grid-template-columns: 1fr; }
+    .personal-info-grid, .skills-wrapper {
+        display: grid;
+        grid-template-columns: 1fr; /* Forza una colonna singola su mobile */
+        gap: 15px;
+    }
+    
+    .about-brief h1 {
+        font-size: 1.8rem; /* Ridimensiona il titolo per schermi piccoli */
+    }
 }
 
 .technical-skills {
@@ -477,10 +487,10 @@ body {
 .contact-intro { text-align: center; margin-bottom: 60px; }
 .contact-intro h1 { font-size: 2.5rem; margin-bottom: 15px; }
 
-.contact-grid { 
-    display: grid; 
-    grid-template-columns: 1fr 1.5fr; 
-    gap: 50px; 
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 40px;
     align-items: start;
 }
 
@@ -491,6 +501,7 @@ body {
 }
 
 .info-item {
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
     gap: 20px;
@@ -515,16 +526,19 @@ body {
 /* Form Style */
 .contact-form-container {
     background: #fff;
-    padding: 40px;
+    padding: 20px;
     border-radius: 12px;
     border: 1px solid #eee;
     box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    width: 100%;
+    padding: 10px;
 }
 
 .form-group { margin-bottom: 20px; }
 .form-group label { display: block; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; }
 .form-group input, .form-group textarea {
     width: 100%;
+    box-sizing: border-box;
     padding: 12px;
     border: 1px solid #ddd;
     border-radius: 5px;
