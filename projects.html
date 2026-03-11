@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
 
     <header class="main-header">
@@ -34,55 +35,57 @@
     <main class="container">
         <section class="projects-hero">
             <h1>I Miei Progetti</h1>
-            <p class="subtitle">Una selezione dei lavori sviluppati, spaziando dal Web al Mobile, fino al Game Development.</p>
+            <p class="subtitle">Ecco i lavori principali su cui ho concentrato il mio studio e lo sviluppo full-stack.</p>
         </section>
 
         <div class="projects-grid">
             
-            <article class="project-card">
+            <article class="project-card featured">
                 <div class="project-image">
-                    <div class="img-placeholder"><i class="fas fa-mobile-alt"></i></div>
+                    <div class="img-placeholder"><i class="fas fa-calendar-check"></i></div>
                 </div>
                 <div class="project-content">
-                    <span class="project-tag">.NET MAUI / AI</span>
-                    <h3>Smart AI Mobile App</h3>
-                    <p>Applicazione cross-platform sviluppata in <strong>Blazor MAUI Hybrid</strong>. Integra modelli di Intelligenza Artificiale tramite <strong>REST API</strong> per l'automazione di task e analisi dati.</p>
-                    <div class="project-tech">
-                        <span>C#</span> <span>Blazor</span> <span>OpenAI API</span>
+                    <span class="project-tag">Full Stack Web App</span>
+                    <h3>Schedly – Gestionale Appuntamenti</h3>
+                    
+                    <p>Ho sviluppato questa piattaforma per semplificare la vita a chi gestisce piccoli studi o attività. È un sistema che permette di prenotare in autonomia e gestire il calendario in tempo reale.</p>
+                    
+                    <p style="margin-top: 1rem;">Mi sono concentrato sulla creazione di un'interfaccia semplice per il cliente e una dashboard completa per l'admin, risolvendo la sfida tecnica della sincronizzazione delle disponibilità.</p>
+                    
+                    <div class="project-tech" style="margin: 1.5rem 0;">
+                        <span>React.js</span> <span>Node.js</span> <span>Supabase</span> <span>Tailwind CSS</span>
                     </div>
-                    <a href="#" class="btn-project">Dettagli <i class="fas fa-arrow-right"></i></a>
+                    
+                    <a href="schedly.html" class="btn-project">Più Dettagli & Screen <i class="fas fa-eye"></i></a>
                 </div>
             </article>
 
-            <article class="project-card">
-                <div class="project-image">
-                    <div class="img-placeholder"><i class="fas fa-server"></i></div>
-                </div>
-                <div class="project-content">
-                    <span class="project-tag">Full Stack</span>
-                    <h3>E-Management System</h3>
-                    <p>Sistema gestionale completo basato su architettura <strong>MVC</strong>. Gestione database <strong>SQL</strong>, autenticazione utenti e dashboard dinamiche in JavaScript.</p>
-                    <div class="project-tech">
-                        <span>ASP.NET Core</span> <span>SQL Server</span> <span>JS</span>
-                    </div>
-                    <a href="#" class="btn-project">Dettagli <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
-
-            <article class="project-card">
-                <div class="project-image">
-                    <div class="img-placeholder"><i class="fas fa-gamepad"></i></div>
-                </div>
-                <div class="project-content">
-                    <span class="project-tag">Game Dev</span>
-                    <h3>Unity 2D Platformer</h3>
-                    <p>Sviluppo di un prototipo di gioco 2D focalizzato sulla gestione della fisica e delle collisioni. Scripting avanzato in C# per le meccaniche di movimento e IA dei nemici.</p>
-                    <div class="project-tech">
-                        <span>Unity</span> <span>C#</span> <span>Physics Engine</span>
-                    </div>
-                    <a href="#" class="btn-project">Dettagli <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </article>
+       <article class="project-card">
+        <div class="project-image">
+            <div class="img-placeholder"><i class="fas fa-wallet"></i></div>
+        </div>
+        <div class="project-content">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <span class="project-tag">App Mobile / AI</span>
+                <span style="font-size: 0.75rem; color: #f39c12; font-weight: 600; display: flex; align-items: center; gap: 5px;">
+                    <span style="width: 8px; height: 8px; background-color: #f39c12; border-radius: 50%; display: inline-block; animation: pulse 1.5s infinite;"></span>
+                    Work in Progress
+                </span>
+            </div>
+            
+            <h3>SmartWalletAI</h3>
+            
+            <p>Un assistente finanziario personale che trasforma il bilancio delle spese in una conversazione. L'obiettivo è permettere all'utente di "parlare" con i propri dati per capire come risparmiare.</p>
+            
+            <p style="margin-top: 1rem;">Sviluppata con <strong>.NET MAUI e Blazor Hybrid</strong>, l'app si appoggia a <strong>Supabase</strong> per la gestione del database e integra l'AI per analizzare l'andamento finanziario in tempo reale.</p>
+            
+            <div class="project-tech" style="margin: 1.5rem 0;">
+                <span>C#</span> <span>.NET MAUI</span> <span>OpenAI API</span> <span>Supabase</span>
+            </div>
+            
+            <a href="#" class="btn-project">Dettagli <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </article>
 
         </div>
     </main>
@@ -109,6 +112,7 @@
             </div>
         </div>
     </footer>
+
     <script src="js/main.js"></script>
 </body>
 </html>
