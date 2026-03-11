@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedly | Dettagli Progetto | Ratul Hasan</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">RH<span>.dev</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">Chi Sono</a></li>
+                <li><a href="projects.html" class="active">Progetti</a></li>
+                <li><a href="contact.html">Contatti</a></li>
+            </ul>
+            <div class="header-socials">
+                <a href="https://www.linkedin.com/in/ratul-hasan-692710324/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/tuo-profilo" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+            <div class="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container" style="padding-top: 4rem; padding-bottom: 4rem;">
+        
+        <section class="project-hero" style="margin-bottom: 3rem;">
+            <h1>Schedly – Smart Appointment System</h1>
+            <p class="subtitle">Ottimizzare la gestione delle prenotazioni con un sistema Full-Stack in tempo reale.</p>
+        </section>
+
+        <article class="project-details-content">
+            
+            <section style="margin-bottom: 2rem;">
+                <h3>Il Problema</h3>
+                <p>Molte piccole attività perdono tempo prezioso gestendo prenotazioni tramite chiamate o messaggi disorganizzati. Schedly nasce per dare autonomia al cliente e controllo totale al proprietario.</p>
+            </section>
+
+            <section style="margin-bottom: 2rem;">
+                <h3>Architettura & Logica</h3>
+                <p>Ho progettato l'applicazione separando nettamente i ruoli:</p>
+                <ul style="list-style-type: square; margin-left: 20px; margin-top: 10px;">
+                    <li><strong>Admin:</strong> Gestisce servizi, prezzi e approva manualmente le prenotazioni in attesa.</li>
+                    <li><strong>Cliente:</strong> Visualizza disponibilità e prenota in autonomia.</li>
+                </ul>
+            </section>
+            <h3 style="margin-top: 3rem; border-bottom: 2px solid #eee; padding-bottom: 10px;">Pannello Amministratore</h3>
+            <section class="project-gallery">
+    
+                <div class="screenshot-card">
+                    <img src="images/dashboard.png" alt="Dashboard Admin">
+                    <div style="padding: 20px;">
+                        <h4 style="margin-bottom: 8px; font-size: 1.2rem; color: #333;">Dashboard Admin</h4>
+                        <p style="font-size: 0.95rem; color: #666; line-height: 1.5; margin: 0;">
+                            La mia dashboard principale. Qui ho centralizzato il monitoraggio di tutte le prenotazioni, permettendo all'admin di avere subito sott'occhio gli appuntamenti del giorno e di gestire rapidamente il flusso di lavoro dell'attività.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="images/appuntamenti_Admin.png" alt="Gestione Appuntamenti Admin">
+                    <div style="padding: 20px;">
+                        <h4 style="margin-bottom: 8px; font-size: 1.2rem; color: #333;">Gestione Appuntamenti</h4>
+                        <p style="font-size: 0.95rem; color: #666; line-height: 1.5; margin: 0;">
+                            Un calendario interattivo che ho sviluppato per gestire gli slot orari. Permette di visualizzare gli appuntamenti in tempo reale e di cambiare facilmente lo stato da 'Pending' a 'Confirmed', evitando sovrapposizioni e mantenendo l'agenda sempre in ordine.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card">
+                    <img src="images/clienti.png" alt="Anagrafica Clienti">
+                    <div style="padding: 20px;">
+                        <h4 style="margin-bottom: 8px; font-size: 1.2rem; color: #333;">Anagrafica Clienti</h4>
+                        <p style="font-size: 0.95rem; color: #666; line-height: 1.5; margin: 0;">
+                            Ho creato questa sezione per organizzare i contatti dei clienti in modo semplice. Ho implementato una barra di ricerca per filtrare i nomi in tempo reale e le funzioni base per aggiungere, modificare o rimuovere un profilo dal database.
+                        </p>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                 <img src="images/servizi_Admin.png" alt="Gestione Servizi">
+                    <div style="padding: 20px;">
+                        <h4 style="margin-bottom: 8px; font-size: 1.2rem; color: #333;">Gestione Servizi</h4>
+                        <p style="font-size: 0.95rem; color: #666; line-height: 1.5; margin: 0;">
+                            Ho strutturato questa sezione come un catalogo dinamico per l'amministratore. Permette di definire con precisione la durata e il tipo di ogni servizio offerto, garantendo flessibilità operativa e una configurazione rapida del listino prezzi.
+                        </p>
+                    </div>
+                </div>
+            </section>
+            <h3 style="margin-top: 3rem; border-bottom: 2px solid #eee; padding-bottom: 10px;">Pannello Cliente</h3>
+            <section class="project-gallery">
+                
+                <div class="screenshot-card">
+                    <img src="images/servizi_Cliente.png" alt="Catalogo Servizi Cliente">
+                    <div style="padding: 20px;">
+                        <h4 style="margin-bottom: 8px; font-size: 1.2rem; color: #333;">Interfaccia Prenotazione</h4>
+                        <p style="font-size: 0.95rem; color: #666; line-height: 1.5; margin: 0;">
+                            Ho progettato il pannello cliente puntando sulla massima semplicità. L'utente visualizza il catalogo con prezzi e durate in modo chiaro, riducendo l'attrito durante il processo di prenotazione e rendendo l'esperienza fluida e intuitiva.
+                        </p>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <img src="images/prenotazione.png" alt="Schermata Conferma Prenotazione">
+                    <div style="padding: 20px;">
+                        <h4 style="margin-bottom: 8px; font-size: 1.2rem; color: #333;">Conferma Prenotazione</h4>
+                        <p style="font-size: 0.95rem; color: #666; line-height: 1.5; margin: 0;">
+                            Questa è la fase conclusiva del flusso cliente. Ho implementato una logica di selezione data e ora semplificata, che trasmette all'utente un feedback immediato e sicuro, completando il ciclo di prenotazione in pochi click.
+                        </p>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                <img src="images/appuntamenti_Cliente.png" alt="Storico Appuntamenti Cliente">
+                <div style="padding: 20px;">
+                    <h4 style="margin-bottom: 8px; font-size: 1.2rem; color: #333;">Storico Appuntamenti</h4>
+                    <p style="font-size: 0.95rem; color: #666; line-height: 1.5; margin: 0;">
+                        In questa vista, il cliente ha il controllo completo delle proprie prenotazioni. Ho implementato un sistema di feedback visivo chiaro per distinguere istantaneamente tra appuntamenti confermati e quelli in attesa, migliorando la trasparenza e l'esperienza utente.
+                    </p>
+                </div>
+            </div>
+            </section>
+            <div class="project-actions" style="margin-top: 2rem;">
+                <a href="projects.html" class="btn-project"><i class="fas fa-arrow-left"></i> Torna ai Progetti</a>
+            </div>
+
+        </article>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Ratul Hasan</h3>
+                    <p>Software Developer Junior</p>
+                </div>
+                <div class="footer-contact">
+                    <p><i class="fas fa-envelope"></i> ratulh129@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +39 388 246 0770</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Castelplanio (AN), Italia</p>
+                </div>
+                <div class="footer-socials">
+                    <a href="https://www.linkedin.com/in/ratul-hasan-692710324/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/tuo-profilo" target="_blank"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Ratul Hasan. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+</html>
