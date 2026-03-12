@@ -4,158 +4,368 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schedly | Dettagli Progetto | Ratul Hasan</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #0077b5; 
+            --primary-light: #eff6ff;
+            --bg-body: #ffffff;
+            --radius: 16px;
+            --border: #e2e8f0;
+            --text-main: #2c3e50;
+            --text-muted: #64748b;
+            --transition: all 0.3s ease;
+            --container-width: 1100px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            line-height: 1.8;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-body);
+        }
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .main-header {
+            padding: 20px 0;
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--text-main); }
+        .logo span { color: var(--primary); }
+        .nav-links { display: flex; list-style: none; gap: 32px; }
+        .nav-links a { text-decoration: none; color: var(--text-main); font-weight: 600; font-size: 0.95rem; }
+        .nav-links a.active { color: var(--primary); }
+
+        /* Hero Section */
+        .project-details-header {
+            padding: 100px 0 60px;
+        }
+
+        .project-hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 3.8rem);
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+        }
+
+        .project-hero-content .subtitle {
+            font-size: 1.35rem;
+            color: var(--text-muted);
+            max-width: 850px;
+            margin-bottom: 32px;
+            font-weight: 400;
+        }
+
+        .badge-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .badge-item {
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 60px 0;
+        }
+
+        .info-card {
+            background: #f8fafc;
+            padding: 45px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+
+        .info-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .info-card h3 i {
+            color: var(--primary);
+        }
+
+        .gallery-title {
+            font-size: 2.2rem;
+            margin: 100px 0 45px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid var(--primary-light);
+            position: relative;
+        }
+
+        .project-gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+            gap: 40px;
+        }
+
+        .screenshot-card {
+            background: #fff;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .screenshot-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+
+        .screenshot-card img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid var(--border);
+            display: block;
+        }
+
+        .card-body {
+            padding: 35px;
+        }
+
+        .card-body h4 {
+            margin-bottom: 18px; 
+            font-size: 1.4rem;
+            color: var(--text-main);
+        }
+
+        .card-body p {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .project-actions {
+            margin: 100px 0;
+            text-align: center;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 18px 36px;
+            background: var(--text-main);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: var(--transition);
+        }
+
+        .btn-back:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,119,181,0.2);
+        }
+
+        .main-footer {
+            padding: 80px 0 40px;
+            background: #fcfcfc;
+            border-top: 1px solid var(--border);
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo { font-size: 1.5rem; font-weight: 800; margin-bottom: 15px; }
+        .footer-logo span { color: var(--primary); }
+
+        @media (max-width: 992px) {
+            .content-grid { grid-template-columns: 1fr; }
+            .project-gallery-grid { grid-template-columns: 1fr; }
+            .project-hero-content h1 { font-size: 2.8rem; }
+        }
+    </style>
 </head>
 <body>
 
     <header class="main-header">
-        <nav class="navbar">
-            <div class="logo">RH<span>.dev</span></div>
+        <nav class="navbar container">
+            <a href="index.html" class="logo">RH<span>.dev</span></a>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">Chi Sono</a></li>
                 <li><a href="projects.html" class="active">Progetti</a></li>
                 <li><a href="contact.html">Contatti</a></li>
             </ul>
-            <div class="header-socials">
-                <a href="https://www.linkedin.com/in/ratul-hasan-692710324/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/Spiloss" target="_blank"><i class="fab fa-github"></i></a>
-            </div>
-            <div class="burger">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
         </nav>
     </header>
 
-    <main class="container" style="padding-top: 4rem; padding-bottom: 4rem;">
-        
-        <section class="project-hero" style="margin-bottom: 3rem;">
-            <h1>Schedly – Smart Appointment System</h1>
-            <p class="subtitle">Ottimizzare la gestione delle prenotazioni con un sistema Full-Stack in tempo reale.</p>
+    <main class="container">
+        <section class="project-details-header">
+            <div class="project-hero-content">
+                <h1>Schedly – Smart <br>Appointment <span style="color:var(--primary)">System.</span></h1>
+                <p class="subtitle">Ottimizzare la gestione delle prenotazioni con un sistema Full-Stack in tempo reale.</p>
+                <div class="badge-tech">
+                    <span class="badge-item">Node.js</span>
+                    <span class="badge-item">TypeScript</span>
+                    <span class="badge-item">Express</span>
+                    <span class="badge-item">PostgreSQL</span>
+                    <span class="badge-item">REST API</span>
+                </div>
+            </div>
         </section>
 
-        <article class="project-details-content">
-            
-            <section style="margin-bottom: 2rem;">
-                <h3>Il Problema</h3>
+        <section class="content-grid">
+            <div class="info-card">
+                <h3><i class="fas fa-lightbulb"></i> Il Problema</h3>
                 <p>Molte piccole attività perdono tempo prezioso gestendo prenotazioni tramite chiamate o messaggi disorganizzati. Schedly nasce per dare autonomia al cliente e controllo totale al proprietario.</p>
-            </section>
+            </div>
+            <div class="info-card">
+                <h3><i class="fas fa-layer-group"></i> Architettura & Logica</h3>
+                <p>Ho progettato l'applicazione separando nettamente i ruoli: <br>
+                <strong>Admin:</strong> Gestisce servizi, prezzi e approva manualmente le prenotazioni in attesa.<br>
+                <strong>Cliente:</strong> Visualizza disponibilità e prenota in autonomia.</p>
+            </div>
+        </section>
 
-            <section style="margin-bottom: 2rem;">
-                <h3>Architettura & Logica</h3>
-                <p>Ho progettato l'applicazione separando nettamente i ruoli:</p>
-                <ul style="list-style-type: square; margin-left: 20px; margin-top: 10px;">
-                    <li><strong>Admin:</strong> Gestisce servizi, prezzi e approva manualmente le prenotazioni in attesa.</li>
-                    <li><strong>Cliente:</strong> Visualizza disponibilità e prenota in autonomia.</li>
-                </ul>
-            </section>
-            <h3 style="margin-top: 3rem; border-bottom: 2px solid #eee; padding-bottom: 10px;">Pannello Amministratore</h3>
-            <section class="project-gallery">
-    
-                <div class="screenshot-card">
-                    <img src="images/dashboard.png" alt="Dashboard Admin">
-                    <div style="padding: 20px;">
-                        <h4 style="margin-bottom: 8px; font-size: 1.2rem; color: #333;">Dashboard Admin</h4>
-                        <p style="font-size: 0.95rem; color: #666; line-height: 1.5; margin: 0;">
-                            La mia dashboard principale. Qui ho centralizzato il monitoraggio di tutte le prenotazioni, permettendo all'admin di avere subito sott'occhio gli appuntamenti del giorno e di gestire rapidamente il flusso di lavoro dell'attività.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="screenshot-card">
-                    <img src="images/appuntamenti_Admin.png" alt="Gestione Appuntamenti Admin">
-                    <div style="padding: 20px;">
-                        <h4 style="margin-bottom: 8px; font-size: 1.2rem; color: #333;">Gestione Appuntamenti</h4>
-                        <p style="font-size: 0.95rem; color: #666; line-height: 1.5; margin: 0;">
-                            Un calendario interattivo che ho sviluppato per gestire gli slot orari. Permette di visualizzare gli appuntamenti in tempo reale e di cambiare facilmente lo stato da 'Pending' a 'Confirmed', evitando sovrapposizioni e mantenendo l'agenda sempre in ordine.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="screenshot-card">
-                    <img src="images/clienti.png" alt="Anagrafica Clienti">
-                    <div style="padding: 20px;">
-                        <h4 style="margin-bottom: 8px; font-size: 1.2rem; color: #333;">Anagrafica Clienti</h4>
-                        <p style="font-size: 0.95rem; color: #666; line-height: 1.5; margin: 0;">
-                            Ho creato questa sezione per organizzare i contatti dei clienti in modo semplice. Ho implementato una barra di ricerca per filtrare i nomi in tempo reale e le funzioni base per aggiungere, modificare o rimuovere un profilo dal database.
-                        </p>
-                    </div>
-                </div>
-                <div class="screenshot-card">
-                 <img src="images/servizi_Admin.png" alt="Gestione Servizi">
-                    <div style="padding: 20px;">
-                        <h4 style="margin-bottom: 8px; font-size: 1.2rem; color: #333;">Gestione Servizi</h4>
-                        <p style="font-size: 0.95rem; color: #666; line-height: 1.5; margin: 0;">
-                            Ho strutturato questa sezione come un catalogo dinamico per l'amministratore. Permette di definire con precisione la durata e il tipo di ogni servizio offerto, garantendo flessibilità operativa e una configurazione rapida del listino prezzi.
-                        </p>
-                    </div>
-                </div>
-            </section>
-            <h3 style="margin-top: 3rem; border-bottom: 2px solid #eee; padding-bottom: 10px;">Pannello Cliente</h3>
-            <section class="project-gallery">
-                
-                <div class="screenshot-card">
-                    <img src="images/servizi_Cliente.png" alt="Catalogo Servizi Cliente">
-                    <div style="padding: 20px;">
-                        <h4 style="margin-bottom: 8px; font-size: 1.2rem; color: #333;">Interfaccia Prenotazione</h4>
-                        <p style="font-size: 0.95rem; color: #666; line-height: 1.5; margin: 0;">
-                            Ho progettato il pannello cliente puntando sulla massima semplicità. L'utente visualizza il catalogo con prezzi e durate in modo chiaro, riducendo l'attrito durante il processo di prenotazione e rendendo l'esperienza fluida e intuitiva.
-                        </p>
-                    </div>
-                </div>
-                <div class="screenshot-card">
-                    <img src="images/prenotazione.png" alt="Schermata Conferma Prenotazione">
-                    <div style="padding: 20px;">
-                        <h4 style="margin-bottom: 8px; font-size: 1.2rem; color: #333;">Conferma Prenotazione</h4>
-                        <p style="font-size: 0.95rem; color: #666; line-height: 1.5; margin: 0;">
-                            Questa è la fase conclusiva del flusso cliente. Ho implementato una logica di selezione data e ora semplificata, che trasmette all'utente un feedback immediato e sicuro, completando il ciclo di prenotazione in pochi click.
-                        </p>
-                    </div>
-                </div>
-                <div class="screenshot-card">
-                <img src="images/appuntamenti_Cliente.png" alt="Storico Appuntamenti Cliente">
-                <div style="padding: 20px;">
-                    <h4 style="margin-bottom: 8px; font-size: 1.2rem; color: #333;">Storico Appuntamenti</h4>
-                    <p style="font-size: 0.95rem; color: #666; line-height: 1.5; margin: 0;">
-                        In questa vista, il cliente ha il controllo completo delle proprie prenotazioni. Ho implementato un sistema di feedback visivo chiaro per distinguere istantaneamente tra appuntamenti confermati e quelli in attesa, migliorando la trasparenza e l'esperienza utente.
-                    </p>
+        <h2 class="gallery-title">Pannello Amministratore</h2>
+        <section class="project-gallery-grid">
+            
+            <div class="screenshot-card">
+                <img src="images/dashboard.png" alt="Dashboard Admin">
+                <div class="card-body">
+                    <h4>Dashboard Admin</h4>
+                    <p>La mia dashboard principale. Qui ho centralizzato il monitoraggio di tutte le prenotazioni, permettendo all'admin di avere subito sott'occhio gli appuntamenti del giorno e di gestire rapidamente il flusso di lavoro dell'attività.</p>
                 </div>
             </div>
-            </section>
-            <div class="project-actions" style="margin-top: 2rem;">
-                <a href="projects.html" class="btn-project"><i class="fas fa-arrow-left"></i> Torna ai Progetti</a>
+
+            <div class="screenshot-card">
+                <img src="images/appuntamenti_Admin.png" alt="Gestione Appuntamenti">
+                <div class="card-body">
+                    <h4>Gestione Appuntamenti</h4>
+                    <p>Un calendario interattivo che ho sviluppato per gestire gli slot orari. Permette di visualizzare gli appuntamenti in tempo reale e di cambiare facilmente lo stato da 'Pending' a 'Confirmed', evitando sovrapposizioni e mantenendo l'agenda sempre in ordine.</p>
+                </div>
             </div>
 
-        </article>
+            <div class="screenshot-card">
+                <img src="images/clienti.png" alt="Anagrafica Clienti">
+                <div class="card-body">
+                    <h4>Anagrafica Clienti</h4>
+                    <p>Ho creato questa sezione per organizzare i contatti dei clienti in modo semplice. Ho implementato una barra di ricerca per filtrare i nomi in tempo reale e le funzioni base per aggiungere, modificare o rimuovere un profilo dal database.</p>
+                </div>
+            </div>
+
+            <div class="screenshot-card">
+                <img src="images/servizi_Admin.png" alt="Gestione Servizi">
+                <div class="card-body">
+                    <h4>Gestione Servizi</h4>
+                    <p>Ho strutturato questa sezione come un catalogo dinamico per l'amministratore. Permette di definire con precisione la durata e il tipo di ogni servizio offerto, garantendo flessibilità operativa e una configurazione rapida del listino prezzi.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <h2 class="gallery-title">Pannello Cliente</h2>
+        <section class="project-gallery-grid">
+            
+            <div class="screenshot-card">
+                <img src="images/servizi_Cliente.png" alt="Interfaccia Prenotazione">
+                <div class="card-body">
+                    <h4>Interfaccia Prenotazione</h4>
+                    <p>Ho progettato il pannello cliente puntando sulla massima semplicità. L'utente visualizza il catalogo con prezzi e durate in modo chiaro, riducendo l'attrito durante il processo di prenotazione e rendendo l'esperienza fluida e intuitiva.</p>
+                </div>
+            </div>
+
+            <div class="screenshot-card">
+                <img src="images/prenotazione.png" alt="Conferma Prenotazione">
+                <div class="card-body">
+                    <h4>Conferma Prenotazione</h4>
+                    <p>Questa è la fase conclusiva del flusso cliente. Ho implementato una logica di selezione data e ora semplificata, che trasmette all'utente un feedback immediato e sicuro, completando il ciclo di prenotazione in pochi click.</p>
+                </div>
+            </div>
+
+            <div class="screenshot-card">
+                <img src="images/appuntamenti_Cliente.png" alt="Storico Appuntamenti">
+                <div class="card-body">
+                    <h4>Storico Appuntamenti</h4>
+                    <p>In questa vista, il cliente ha il controllo completo delle proprie prenotazioni. Ho implementato un sistema di feedback visivo chiaro per distinguere istantaneamente tra appuntamenti confermati e quelli in attesa, migliorando la trasparenza e l'esperienza utente.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <div class="project-actions">
+            <a href="projects.html" class="btn-back">
+                <i class="fas fa-arrow-left"></i> Torna ai Progetti
+            </a>
+        </div>
     </main>
 
     <footer class="main-footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-info">
-                    <h3>Ratul Hasan</h3>
-                    <p>Software Developer Junior</p>
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">RH<span>.dev</span></div>
+                    <p>Sviluppo soluzioni web moderne e scalabili con focus sull'esperienza utente.</p>
                 </div>
-                <div class="footer-contact">
-                    <p><i class="fas fa-envelope"></i> ratulh129@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> +39 388 246 0770</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Castelplanio (AN), Italia</p>
+                <div>
+                    <h4 style="margin-bottom: 20px;">Contatti</h4>
+                    <p style="margin-bottom: 10px;"><i class="fas fa-envelope" style="color:var(--primary); margin-right: 10px;"></i> ratulh129@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt" style="color:var(--primary); margin-right: 10px;"></i> Castelplanio (AN), Italia</p>
                 </div>
-                <div class="footer-socials">
-                    <a href="https://www.linkedin.com/in/ratul-hasan-692710324/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/Spiloss" target="_blank"><i class="fab fa-github"></i></a>
+                <div style="text-align: right;">
+                    <h4 style="margin-bottom: 20px;">Seguimi</h4>
+                    <div style="display: flex; gap: 20px; justify-content: flex-end; font-size: 1.5rem;">
+                        <a href="#" style="color: var(--text-main);"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" style="color: var(--text-main);"><i class="fab fa-github"></i></a>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
+            <div style="text-align: center; padding-top: 40px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.9rem;">
                 <p>&copy; 2026 Ratul Hasan. Tutti i diritti riservati.</p>
             </div>
         </div>
     </footer>
-    <script src="js/main.js"></script>
-</body>
 
+</body>
 </html>
