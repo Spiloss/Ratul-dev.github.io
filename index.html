@@ -4,14 +4,216 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ratul Hasan | Software Developer Junior</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #0077b5; 
+            --bg-body: #ffffff;
+            --radius: 20px;
+            --border: #e2e8f0;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        body {
+            line-height: 1.7;
+            font-family: 'Inter', sans-serif;
+            color: #2c3e50;
+            background-color: #fff;
+        }
+
+        .hero {
+            padding: 120px 0 80px;
+            background: radial-gradient(circle at 90% 10%, #eff6ff 0%, transparent 40%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .badge {
+            background: #eff6ff;
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 3.8rem);
+            line-height: 1.1;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #1e293b;
+            letter-spacing: -0.03em;
+        }
+
+        .hero-text h2 {
+            font-size: 1.5rem;
+            color: #64748b;
+            font-weight: 400;
+            margin-bottom: 30px;
+        }
+
+        .hero-text p {
+            font-size: 1.15rem;
+            color: #475569;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .avatar-main {
+            background: #f8fafc;
+            width: 350px;
+            height: 350px;
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #eff6ff;
+            animation: morph 8s ease-in-out infinite;
+            position: relative;
+        }
+
+        @keyframes morph {
+            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+            50% { border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%; }
+            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn {
+            padding: 16px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 10px 20px rgba(0, 119, 181, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(0, 119, 181, 0.3);
+            background: #00669c;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--border);
+            color: #475569;
+        }
+
+        .btn-outline:hover {
+            background: #f8fafc;
+            border-color: #cbd5e1;
+        }
+
+        .skills-summary {
+            padding: 80px 0;
+            background: #fcfcfd;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+        }
+
+        .skill-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+            background: #eff6ff;
+            width: 80px;
+            height: 80px;
+            line-height: 80px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .skill-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            color: #1e293b;
+        }
+
+        .skill-card p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 992px) {
+            .hero-content { grid-template-columns: 1fr; text-align: center; }
+            .hero-text p { margin: 0 auto 40px; }
+            .cta-group { justify-content: center; }
+            .avatar-main { width: 280px; height: 280px; margin-top: 40px; }
+        }
+
+        @media (max-width: 768px) {
+            .hero { padding-top: 80px; }
+            .hero-text h1 { font-size: 2.8rem; }
+        }
+    </style>
 </head>
 <body>
 
     <header class="main-header">
-        <nav class="navbar">
+        <nav class="navbar container">
             <div class="logo">RH<span>.dev</span></div>
             
             <ul class="nav-links">
@@ -25,7 +227,7 @@
                 <a href="https://www.linkedin.com/in/ratul-hasan-692710324/" target="_blank" title="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                 </a>
-                <a href="https://github.com/Spiloss" target="_blank" title="GitHub">
+                <a href="https://github.com/tuo-profilo" target="_blank" title="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
             </div>
@@ -40,18 +242,25 @@
 
     <main>
         <section class="hero">
-            <div class="container">
+            <div class="container hero-content">
                 <div class="hero-text">
                     <span class="badge">Junior Developer</span>
-                    <h1>Ciao, sono Ratul Hasan</h1>
-                    <h2>Full Stack & Mobile App Developer</h2>
+                    <h1>Ciao, sono <span style="color:var(--primary)">Ratul Hasan.</span></h1>
+                    <h2>Full Stack Developer</h2>
                     <p>
-                        Sono appassionato di sviluppo Full Stack e Mobile: specializzato in siti web, gestionali e applicazioni solide e funzionali, con backend in <strong>C#/.NET MVC</strong> e interfacce moderne e interattive. 
-                        Ho esperienza nello sviluppo di app cross-platform con <strong>.NET MAUI</strong> e nell’integrazione di soluzioni <strong>AI</strong> e automazioni intelligenti.
+                      Automatizzo processi complessi, trasformando attività ripetitive in flussi digitali affidabili e performanti.
                     </p>
                     <div class="cta-group">
-                        <a href="projects.html" class="btn btn-primary">Vedi i miei Progetti</a>
+                        <a href="projects.html" class="btn btn-primary">
+                            Vedi Progetti <i class="fas fa-arrow-right"></i>
+                        </a>
                         <a href="contact.html" class="btn btn-outline">Contattami</a>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <div class="avatar-main">
+                        <i class="fas fa-laptop-code" style="font-size: 8rem; color: var(--primary)"></i>
                     </div>
                 </div>
             </div>
@@ -59,26 +268,29 @@
 
         <section class="skills-summary">
             <div class="container">
+                <div class="section-header">
+                    <h2>Cosa faccio</h2>
+                </div>
                 <div class="skills-grid">
-                    <div class="skill-category">
+                    <div class="skill-card">
                         <i class="fas fa-code"></i>
                         <h3>Full Stack</h3>
-                        <p>Sviluppo Web (JS, HTML, CSS) e Backend in C#/.NET MVC con gestione REST API.</p>
+                        <p>Architetture solide con C#/.NET MVC, REST API e frontend interattivi in JS/TS.</p>
                     </div>
-                    <div class="skill-category">
+                    <div class="skill-card">
                         <i class="fas fa-mobile-alt"></i>
                         <h3>Mobile & MAUI</h3>
-                        <p>Creazione di App cross-platform con .NET MAUI e Blazor per Android e iOS.</p>
+                        <p>Sviluppo di applicazioni native e cross-platform performanti per Android e iOS.</p>
                     </div>
-                    <div class="skill-category">
-                        <i class="fas fa-robot"></i>
-                        <h3>AI & Innovation</h3>
-                        <p>Integrazione di API di Intelligenza Artificiale e automazione software moderna.</p>
+                    <div class="skill-card">
+                        <i class="fas fa-microchip"></i>
+                        <h3>Automazione</h3>
+                        <p>Integrazione PLC Siemens (TIA Portal) e sistemi IoT per l'industria 4.0.</p>
                     </div>
-                    <div class="skill-category">
+                    <div class="skill-card">
                         <i class="fas fa-gamepad"></i>
                         <h3>Game Dev</h3>
-                        <p>Sviluppo di prototipi e giochi 2D con Unity e C# scripting.</p>
+                        <p>Creazione di prototipi e gameplay logic utilizzando Unity e C# scripting.</p>
                     </div>
                 </div>
             </div>
@@ -99,7 +311,7 @@
                 </div>
                 <div class="footer-socials">
                     <a href="https://www.linkedin.com/in/ratul-hasan-692710324/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/Spiloss" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/tuo-profilo" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
             </div>
             <div class="footer-bottom">
