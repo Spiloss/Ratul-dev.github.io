@@ -3,27 +3,241 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Progetti | Ratul Hasan</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
+    <title>Progetti | Ratul Hasan</title>    
 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        :root {
+            --primary: #0077b5; 
+            --bg-body: #ffffff;
+            --radius: 16px;
+            --border: #e2e8f0;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            line-height: 1.7;
+            font-family: 'Inter', sans-serif;
+            color: #2c3e50;
+        }
+
+        .projects-section {
+            padding: 60px 0;
+        }
+
+        .projects-hero {
+            text-align: left;
+            margin-bottom: 60px;
+            max-width: 800px;
+        }
+
+        .projects-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            color: #2c3e50;
+        }
+
+        .projects-hero p {
+            font-size: 1.15rem;
+            color: #64748b;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            margin-bottom: 80px;
+        }
+
+        .project-card {
+            background: #fff;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 119, 181, 0.08);
+        }
+
+        .project-image-box {
+            background: #f8fafc;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+        }
+
+        .project-image-box i {
+            font-size: 3.5rem;
+            color: var(--primary);
+            opacity: 0.8;
+        }
+
+        .project-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-body {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            gap: 15px;
+        }
+
+        .project-header h3 {
+            font-size: 1.35rem;
+            color: #2c3e50;
+            margin: 0;
+        }
+        .project-description {
+            color: #64748b;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .project-focus {
+            background: #f8fafc;
+            border-left: 3px solid var(--primary);
+            padding: 15px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            color: #475569;
+            font-style: italic;
+        }
+        .wip-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #fff9f0;
+            border: 1px solid #ffe8cc;
+            padding: 4px 10px;
+            border-radius: 8px;
+            color: #f39c12;
+            font-size: 0.75rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .pulse-dot {
+            width: 7px;
+            height: 7px;
+            background-color: #f39c12;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+
+        .project-body p {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .tech-tag {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .btn-project {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: var(--transition);
+            width: fit-content;
+        }
+
+        .btn-project:hover {
+            background: #005a8a;
+            transform: scale(1.02);
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(243, 156, 18, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 5px rgba(243, 156, 18, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(243, 156, 18, 0); }
+        }
+
+        @media (max-width: 768px) {
+            .projects-hero { text-align: center; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .project-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+            .wip-tag { align-self: flex-start; }
+            .btn-project { width: 100%; }
+        }
+    </style>
+</head>
 <body>
 
     <header class="main-header">
-        <nav class="navbar">
+        <nav class="navbar container">
             <div class="logo">RH<span>.dev</span></div>
+            
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">Chi Sono</a></li>
                 <li><a href="projects.html" class="active">Progetti</a></li>
                 <li><a href="contact.html">Contatti</a></li>
             </ul>
+
             <div class="header-socials">
-                <a href="https://www.linkedin.com/in/ratul-hasan-692710324/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/Spiloss" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/ratul-hasan-692710324/" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/tuo-profilo" target="_blank" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
             </div>
+
             <div class="burger">
                 <div class="line1"></div>
                 <div class="line2"></div>
@@ -33,60 +247,79 @@
     </header>
 
     <main class="container">
-        <section class="projects-hero">
-            <h1>I Miei Progetti</h1>
-            <p class="subtitle">Ecco i lavori principali su cui ho concentrato il mio studio e lo sviluppo full-stack.</p>
-        </section>
-
-        <div class="projects-grid">
+        <div class="projects-section">
             
-            <article class="project-card featured">
-                <div class="project-image">
-                    <div class="img-placeholder"><i class="fas fa-calendar-check"></i></div>
-                </div>
-                <div class="project-content">
-                    <span class="project-tag">Full Stack Web App</span>
-                    <h3>Schedly – Gestionale Appuntamenti</h3>
-                    
-                    <p>Ho sviluppato questa piattaforma per semplificare la vita a chi gestisce piccoli studi o attività. È un sistema che permette di prenotare in autonomia e gestire il calendario in tempo reale.</p>
-                    
-                    <p style="margin-top: 1rem;">Mi sono concentrato sulla creazione di un'interfaccia semplice per il cliente e una dashboard completa per l'admin, risolvendo la sfida tecnica della sincronizzazione delle disponibilità.</p>
-                    
-                    <div class="project-tech" style="margin: 1.5rem 0;">
-                        <span>React.js</span> <span>Node.js</span> <span>Supabase</span> <span>Tailwind CSS</span>
+            <section class="projects-hero">
+                <h1>I miei <span style="color:var(--primary)">Progetti.</span></h1>
+                <p>Sistemi gestionali, applicazioni mobili e automazioni industriali: ecco come trasformo la complessità in soluzioni semplici.</p>
+            </section>
+
+            <div class="projects-grid">
+                
+                <article class="project-card">
+                    <div class="project-image-box">
+                        <span class="project-badge">In evidenza</span>
+                        <i class="fas fa-calendar-alt"></i>
                     </div>
-                    
-                    <a href="schedly.html" class="btn-project">Più Dettagli & Screen <i class="fas fa-eye"></i></a>
-                </div>
-            </article>
+                    <div class="project-body">
+                        <div class="project-header">
+                            <h3>Schedly</h3>
+                        </div>
+                        <div class="project-description">
+                            Ho sviluppato questa piattaforma per semplificare la vita a chi gestisce piccoli studi o attività. È un sistema che permette di prenotare in autonomia e gestire il calendario in tempo reale.
+                        </div>
 
-       <article class="project-card">
-        <div class="project-image">
-            <div class="img-placeholder"><i class="fas fa-wallet"></i></div>
-        </div>
-        <div class="project-content">
-            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-                <span class="project-tag">App Mobile / AI</span>
-                <span style="font-size: 0.75rem; color: #f39c12; font-weight: 600; display: flex; align-items: center; gap: 5px;">
-                    <span style="width: 8px; height: 8px; background-color: #f39c12; border-radius: 50%; display: inline-block; animation: pulse 1.5s infinite;"></span>
-                    Work in Progress
-                </span>
-            </div>
-            
-            <h3>SmartWalletAI</h3>
-            
-            <p>Un assistente finanziario personale che trasforma il bilancio delle spese in una conversazione. L'obiettivo è permettere all'utente di "parlare" con i propri dati per capire come risparmiare.</p>
-            
-            <p style="margin-top: 1rem;">Sviluppata con <strong>.NET MAUI e Blazor Hybrid</strong>, l'app si appoggia a <strong>Supabase</strong> per la gestione del database e integra l'AI per analizzare l'andamento finanziario in tempo reale.</p>
-            
-            <div class="project-tech" style="margin: 1.5rem 0;">
-                <span>C#</span> <span>.NET MAUI</span> <span>OpenAI API</span> <span>Supabase</span>
-            </div>
-            
-            <a href="#" class="btn-project">Dettagli <i class="fas fa-arrow-right"></i></a>
-        </div>
-    </article>
+                        <div class="project-focus">
+                            Mi sono concentrato sulla creazione di un'interfaccia semplice per il cliente e una dashboard completa per l'admin, risolvendo la sfida tecnica della sincronizzazione delle disponibilità.
+                        </div>
+                        
+                        <div class="tech-tags">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">Supabase</span>
+                            <span class="tech-tag">Tailwind</span>
+                        </div>
+                        
+                        <a href="schedly.html" class="btn-project">
+                            Vedi Dettagli <i class="fas fa-eye"></i>
+                        </a>
+                    </div>
+                </article>
 
+                <article class="project-card">
+                    <div class="project-image-box">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-header">
+                            <h3>SmartWalletAI</h3>
+                            <div class="wip-tag">
+                                <div class="pulse-dot"></div>
+                               Work in Progress 
+                            </div>
+                        </div>
+                         <div class="project-description">
+                            Un assistente finanziario personale che trasforma il bilancio delle spese in una conversazione. L'obiettivo è permettere all'utente di "parlare" con i propri dati per capire come risparmiare.
+                        </div>
+
+                        <div class="project-focus">
+                            Sviluppata con .NET MAUI e Blazor Hybrid, l'app si appoggia a Supabase per la gestione del database e integra l'AI per analizzare l'andamento finanziario in tempo reale.
+                        </div>
+                        
+                        <div class="tech-tags">
+                            <span class="tech-tag">.NET MAUI</span>
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">OpenAI</span>
+                            <span class="tech-tag">Blazor</span>
+                        </div>
+                        
+                        <a href="#" class="btn-project" style="background: #e2e8f0; color: #64748b; cursor: default;">
+                            Prossimamente <i class="fas fa-lock"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </div>
         </div>
     </main>
 
@@ -104,7 +337,7 @@
                 </div>
                 <div class="footer-socials">
                     <a href="https://www.linkedin.com/in/ratul-hasan-692710324/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/Spiloss" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/tuo-profilo" target="_blank"><i class="fab fa-github"></i></a>
                 </div>
             </div>
             <div class="footer-bottom">
