@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>WalletAI</title>
+    <style>
+        :root {
+            color-scheme: light dark;
+            --bg: #f7f9fc;
+            --surface: #ffffff;
+            --text: #101828;
+            --muted: #667085;
+            --border: rgba(16, 24, 40, 0.12);
+            --accent: #0a66c2;
+            --danger: #dc2626;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #080b12;
+                --surface: #101522;
+                --text: #f8fafc;
+                --muted: #aeb8c8;
+                --border: rgba(255, 255, 255, 0.12);
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background: var(--bg);
+            color: var(--text);
+            font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            line-height: 1.5;
+        }
+
+        main {
+            width: min(100%, 760px);
+            margin: 0 auto;
+            padding: 28px 18px 44px;
+        }
+
+        .panel {
+            border: 1px solid var(--border);
+            border-radius: 22px;
+            background: var(--surface);
+            padding: clamp(18px, 5vw, 34px);
+            box-shadow: 0 18px 44px rgba(15, 23, 42, 0.08);
+        }
+
+        .eyebrow {
+            margin: 0 0 8px;
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(1.6rem, 8vw, 2.4rem);
+            line-height: 1.05;
+        }
+
+        .subtitle,
+        section p {
+            color: var(--muted);
+        }
+
+        .subtitle {
+            margin: 12px 0 22px;
+            font-size: 1rem;
+        }
+
+        section {
+            padding: 16px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        section h2 {
+            margin: 0 0 8px;
+            font-size: 1.05rem;
+        }
+
+        section p {
+            margin: 0;
+            white-space: pre-line;
+        }
+
+        .actions {
+            display: grid;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .button {
+            display: inline-flex;
+            min-height: 48px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            text-decoration: none;
+            font-weight: 800;
+        }
+
+        .button.primary {
+            background: var(--danger);
+            color: #fff;
+        }
+
+        .button.secondary {
+            border: 1px solid var(--border);
+            color: var(--text);
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <article class="panel">
+            <p class="eyebrow" data-i18n="delete_account_web_eyebrow"></p>
+            <h1 data-i18n="delete_account_request_title"></h1>
+            <p class="subtitle" data-i18n="delete_account_request_subtitle"></p>
+
+            <section>
+                <h2 data-i18n="delete_account_data_heading"></h2>
+                <p data-i18n="delete_account_data_text"></p>
+            </section>
+
+            <section>
+                <h2 data-i18n="delete_account_retention_heading"></h2>
+                <p data-i18n="delete_account_retention_text"></p>
+            </section>
+
+            <section>
+                <h2 data-i18n="delete_account_process_heading"></h2>
+                <p data-i18n="delete_account_process_text"></p>
+            </section>
+
+            <section>
+                <h2 data-i18n="delete_account_web_heading"></h2>
+                <p data-i18n="delete_account_web_text"></p>
+            </section>
+
+            <div class="actions">
+                <a class="button primary" href="#" id="email-link" data-i18n="delete_account_email_button"></a>
+                <a class="button secondary" href="privacy.html" id="privacy-link" data-i18n="settings_privacy_title"></a>
+            </div>
+        </article>
+    </main>
+
+    <script>
+        const supported = new Set(["ar", "bn", "da", "de", "el", "en", "es", "es-MX", "fr", "fr-CA", "he", "hi", "id", "it", "ja", "ko", "nl", "no", "pl", "pt", "ru", "sv", "sw", "th", "tr", "vi", "zh"]);
+
+        function normalizeLanguage(value) {
+            const normalized = (value || "en").trim().replace("_", "-");
+            const lower = normalized.toLowerCase();
+
+            if (lower === "en-us") return "en";
+            if (lower === "it-it") return "it";
+            if (lower === "es-mx") return "es-MX";
+            if (lower === "fr-ca") return "fr-CA";
+
+            const neutral = lower.split("-")[0];
+            return supported.has(normalized) ? normalized : neutral;
+        }
+
+        async function loadTranslations() {
+            const requested = new URLSearchParams(window.location.search).get("lang") || navigator.language || "en";
+            const primary = normalizeLanguage(requested);
+            const neutral = primary.split("-")[0];
+            const candidates = [...new Set([primary, neutral, "en"])].filter(code => supported.has(code));
+
+            for (const code of candidates) {
+                const paths = [`i18n/${code}.json`, `../i18n/${code}.json`];
+                for (const path of paths) {
+                    try {
+                        const response = await fetch(path, { cache: "no-store" });
+                        if (!response.ok) continue;
+                        return { code, data: await response.json() };
+                    } catch {
+                        continue;
+                    }
+                }
+            }
+
+            return { code: "en", data: {} };
+        }
+
+        function applyTranslations(code, translations) {
+            document.documentElement.lang = code;
+            document.title = translations.delete_account_request_title || "WalletAI";
+
+            document.querySelectorAll("[data-i18n]").forEach(element => {
+                const key = element.getAttribute("data-i18n");
+                element.textContent = translations[key] || "";
+            });
+
+            const subject = encodeURIComponent(translations.delete_account_email_subject || "");
+            const body = encodeURIComponent(translations.delete_account_email_body || "");
+            document.getElementById("email-link").href = `mailto:spilossailabs@gmail.com?subject=${subject}&body=${body}`;
+            document.getElementById("privacy-link").href = `privacy.html?lang=${encodeURIComponent(code)}`;
+        }
+
+        loadTranslations().then(result => applyTranslations(result.code, result.data));
+    </script>
+</body>
+</html>
